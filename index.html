@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Proyecto Integrador | Diseño Web</title>
-    <link rel="stylesheet" href="./style/style.css" />
+    <title>Proyecto Integrador JS</title>
+    <link rel="stylesheet" href="assets/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -20,43 +20,71 @@
   <body>
     <header class="header">
       <a href="index.html">
-        <img src="./img/logo.jpg" alt="Logo de Webydatos" />
+        <img src="assets/img/logo.jpg" alt="Logo de Webydatos" />
       </a>
 
-      <nav class="navbar">
-        <label for="toggle-menu"><i class="fas fa-bars"></i></label>
-        <input type="checkbox" id="toggle-menu" />
-        <ul class="navbar-list">
-          <li><a class="navbar-link" href="index.html">Inicio</a></li>
-          <li><a class="navbar-link" href="#about">Beneficios</a></li>
-          <li><a class="navbar-link" href="#info">Información</a></li>
-          <li><a class="navbar-link" href="#contact">Contacto</a></li>
-          <li>
-            <a class="navbar-link" href="login.html" data-tooltip="Login">
-              <i class="fa-solid fa-right-to-bracket" id="nav-button-login"></i
-            ></a>
-          </li>
-          <li>
-            <a class="navbar-link" href="register.html" data-tooltip="Register">
-              <i class="fa-regular fa-user" id="nav-button-register"></i
-            ></a>
-          </li>
-        </ul>
+      <nav class="menu">
+        <section class="menu__container">
+          <ul class="menu__links">
+            <li class="menu__item">
+              <a class="menu__link" href="index.html">Inicio</a>
+            </li>
+
+            <li class="menu__item">
+              <a class="menu__link" href="#about">Beneficios</a>
+            </li>
+
+            <li class="menu__item">
+              <a class="menu__link" href="#productos">Productos</a>
+            </li>
+
+            <li class="menu__item">
+              <a class="menu__link" href="#contact">Contacto</a>
+            </li>
+          </ul>
+
+          <div class="cart-label">
+            <i class="fa-solid fa-cart-shopping">
+              <div class="cart-numero">0</div>
+            </i>
+          </div>
+
+          <div class="menu__hamburguer">
+            <img src="assets/img/menu.png" class="menu__img" />
+          </div>
+
+          <div class="cart" id="cart">
+            <h2> Productos elegidos </h2>
+
+            <div class="cart-container"></div>
+
+            <span class="divider"></span>
+
+            <div class="cart-total">
+              <p>Total:</p>
+              <span class="total"> </span>
+            </div>
+            <button class="btn-comprar">Comprar</button>
+            <button class="btn-eliminar">Vaciar carrito</button>
+          </div>
+        </section>
       </nav>
     </header>
     <main>
       <section id="hero">
         <div class="hero-container">
           <div id="hero-div">
-            <h1 class="typewriter">Creamos proyectos únicos.</h1>
-            <h1>Somos Webydatos.</h1>
-            <a class="hero-call" href="#contact">
-              <button id="hero-call-button">Comentanos sobre tu proyecto</button>
+            <h1>Tienda Webydatos</h1>
+            <h2>El e-commerce más innovador de Argentina</h2>
+            <a class="hero-call" href="#productos">
+              <button id="hero-call-button">
+                Conocé nuestros productos seleccionados
+              </button>
             </a>
           </div>
 
           <video autoplay muted loop id="hero-video">
-            <source src="./videos/video6.mp4" type="video/mp4" />
+            <source src="./videos/apple.mp4" type="video/mp4" />
           </video>
         </div>
       </section>
@@ -64,106 +92,118 @@
       <hr />
       <section id="about">
         <div id="about-div" class="animate__animated animate__fadeInDown">
-          <img id="equipo" src="./img/equipo.jpg" alt="Equipo de trabajo" />
+          <video autoplay muted loop id="about-video">
+            <source src="./videos/payments.mp4" type="video/mp4" />
+          </video>
         </div>
 
         <div id="about-div">
           <p class="animate__animated animate__fadeInUp">
-            Somos un equipo multidisciplinario formado por profesionales
-            dispuestos a ayudarte para poder transformar tus ideas en proyectos
-            reales. Combinamos creatividad, disciplina y conocimiento técnico
-            para generar sitios webs geniales.
+            Ahorrá tiempo y dinero con Webydatos Pagos, un servicio exclusivo
+            para nuestros clientes que te brinda múltiples beneficios sin
+            cobrarte comisiones extra.
           </p>
         </div>
       </section>
       <hr />
-      <section id="info">
-        <div class="info-container">
-          <div class="info-cards" id="card1">
-            <i class="fa-solid fa-code"></i>
-            <p>
-              Creamos sitios seguros y personalizados utilizando lenguajes de
-              programación de vanguardia.
-            </p>
-          </div>
-          <div class="info-cards" id="card2">
-            <i class="fa-solid fa-magnifying-glass-chart"></i>
-            <p>
-              Utilizamos herramientas para analizar los datos de tu sitio y
-              poder tomar mejores decisiones.
-            </p>
-          </div>
-          <div class="info-cards" id="card3">
-            <i class="fa-solid fa-computer"></i>
-            <p>
-              Nos enfocamos en el SEO de tu sitio para obtener resultados
-              óptimos en los buscadores de manera natural.
-            </p>
-          </div>
+
+      <section id="productos">
+        <h2>Productos Seleccionados</h2>
+
+        <div class="categorias">
+          <button class="categoria active">Todas</button>
+          <button class="categoria" data-categoria="Tecnología">
+            Tecnología
+          </button>
+          <button class="categoria" data-categoria="Informática">
+            Informática
+          </button>
+          <button class="categoria" data-categoria="Celulares">
+            Celulares
+          </button>
         </div>
+
+        <div class="productos-container"></div>
+
+        <button class="btn-verMas">Ver Más</button>
       </section>
+
       <hr />
       <section id="contact">
-        <h1> ¿Qué proyecto tenés en mente?</h1>
+        <h2>
+          ¿Dudas o consultas? Rellená el formulario y uno de nuestros asesores
+          se comunicará a la brevedad.
+        </h2>
 
-<form name="formulario" >
-   
-  <div>
-    <label for="name"> Nombre: </label>
-    <input type="name" name="name" id="name">
-  </div>
- 
-  
-  <div>
- 
+        <form name="formulario" id="contact-form">
+          <div>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required />
+            <span id="name-error" class="error"></span>
+          </div>
+
+          <div>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required />
+            <span id="email-error" class="error"></span>
+          </div>
+
+          <div>
+            <label for="msg">Mensaje:</label>
+            <input id="msg" name="msg" required />
+            <span id="msg-error" class="error"></span>
+            <span id="success-message"></span>
+          </div>
+
+          <div>
+            <input type="submit" value="Enviar" />
+          </div>
+        </form>
     
-    <label for="email"> E-mail: </label>
-    <input type="text" id="email" name="email" required>
-  </div>
-
-    
-  <div>
-    <label for="msg"> Mensaje: </label>
-    <input  id="label-box" type="text" id="msg" form="formulario" required>
- 
-  </div>
-
-  <div>
-  
-    <input type="submit" value="Enviar" />
-
-      
-  </div>
-</form>
-
       </section>
     </main>
     <footer class="footer-div">
       <ul>
-      
-        <li> <i class="fa-solid fa-phone"></i> <a href=tel:1234-45678> 1234-45678</a></li>
-        <li> <i class="fa-solid fa-mobile-screen-button"></i> <a href=tel:011-151234-5677> 011-151234-5677</a></li>
-        <li> <i class="fa-solid fa-envelope"></i> <a href=mailto:consultas@estudio.com.ar> consultas@webydatos.com.ar</a></li>
-        <li> <i class="fa-solid fa-location-dot"></i><a> Av. Cabildo 1234</a></li></li>
-     </ul>
+        <li>
+          <i class="fa-solid fa-phone"></i>
+          <a href="tel:1234-45678"> 1234-45678</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-mobile-screen-button"></i>
+          <a href="tel:011-151234-5677"> 011-151234-5677</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:tienda@estudio.com.ar"> tienda@webydatos.com.ar</a>
+        </li>
+        <li>
+          <i class="fa-solid fa-location-dot"></i><a> Av. Cabildo 1234</a>
+        </li>
+      </ul>
 
-     <ul class="navbar-list-footer">
-      <li><a class="navbar-link" href="#hero">Inicio</a></li>
-      <li><a class="navbar-link" href="#about">Beneficios</a></li>
-      <li><a class="navbar-link" href="#info">Información</a></li>
-      <li><a class="navbar-link" href="#contact">Contacto</a></li>
-      <li>
-        <a class="navbar-link" href="login.html" data-tooltip="Login">
-          <i class="fa-solid fa-right-to-bracket" id="nav-button-login"></i
-        ></a>
-      </li>
-      <li>
-        <a class="navbar-link" href="register.html" data-tooltip="Register">
-          <i class="fa-regular fa-user" id="nav-button-register"></i
-        ></a>
-      </li>
-    </ul>
+      <ul class="navbar-list-footer">
+        <li>
+          <a href="https://www.facebook.com"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+        </li>
 
+        <li>
+          <a href="https://www.instagram.com"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </li>
+
+        <li>
+          <a href="https://www.instagram.com"
+            ><i class="fa-brands fa-twitter"></i
+          ></a>
+        </li>
+      </ul>
     </footer>
+    <div class="agregar-modal"></div>
+    <script src="./assets/data.js"></script>
+    <script src="assets/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>
